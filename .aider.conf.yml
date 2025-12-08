@@ -1,0 +1,28 @@
+# Aider Configuration
+# Place this file in your project root or home directory
+
+# Default model - uses local Ollama
+model: ollama/deepseek-coder-v2:16b
+
+# Alternative models (uncomment to use):
+# model: ollama/qwen2.5-coder:14b
+# model: ollama/codellama:13b
+# model: claude-3-5-sonnet-20241022  # Requires ANTHROPIC_API_KEY
+
+# Auto-commit changes to git
+auto-commits: true
+
+# Show diffs before applying changes
+show-diffs: true
+
+# Enable git integration
+git: true
+
+# Prettier output
+pretty: true
+
+# Dark mode (easier on eyes)
+dark-mode: true
+
+# Stream responses
+stream: true
