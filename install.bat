@@ -41,15 +41,34 @@ if %errorlevel% equ 0 (
     goto :found_python
 )
 
-:: No compatible Python found
-echo ERROR: Python 3.10, 3.11, or 3.12 is required.
+:: No compatible Python found - offer to install
+echo No compatible Python version found (need 3.10, 3.11, or 3.12).
 echo Python 3.13 is NOT supported by aider yet.
 echo.
-echo Install Python 3.11 with:
-echo   winget install Python.Python.3.11
+echo Would you like to install Python 3.11 via winget?
+echo (This will NOT change your default Python - 3.13 will remain default)
 echo.
-echo Or download from:
-echo   https://www.python.org/downloads/release/python-3119/
+choice /C YN /M "Install Python 3.11"
+if %errorlevel% equ 1 (
+    echo.
+    echo Installing Python 3.11 via winget...
+    winget install Python.Python.3.11 --accept-package-agreements --accept-source-agreements
+    if %errorlevel% neq 0 (
+        echo ERROR: Failed to install Python 3.11
+        echo Please install manually from: https://www.python.org/downloads/release/python-3119/
+        pause
+        exit /b 1
+    )
+    echo.
+    echo Python 3.11 installed successfully!
+    echo Please close this window and run install.bat again.
+    pause
+    exit /b 0
+)
+echo.
+echo Please install Python 3.11 manually:
+echo   winget install Python.Python.3.11
+echo   or: https://www.python.org/downloads/release/python-3119/
 echo.
 pause
 exit /b 1
