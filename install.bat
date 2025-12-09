@@ -111,10 +111,10 @@ echo To use aider:
 echo   1. Open a new terminal
 echo   2. Navigate to your project: cd your-project
 echo   3. Activate: %~dp0venv\Scripts\activate.bat
-echo   4. Run: aider --model ollama/deepseek-coder-v2:16b
+echo   4. Run: aider --model ollama/qwen2.5-coder:3b
 echo.
-echo Recommended: Pull a coding model for Ollama:
-echo   ollama pull deepseek-coder-v2:16b
-echo   ollama pull qwen2.5-coder:14b
+echo Recommended: Pull a lightweight coding model for Ollama (3B):
+echo   ollama pull qwen2.5-coder:3b      (3B - recommended)
+echo   ollama pull starcoder2:3b         (3B - alternative)
 echo.
 pause

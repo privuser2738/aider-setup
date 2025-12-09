@@ -7,9 +7,9 @@ set SCRIPT_DIR=%~dp0
 :: Activate venv and run aider
 call "%SCRIPT_DIR%venv\Scripts\activate.bat"
 
-:: Default to deepseek-coder if no model specified
+:: Default to qwen2.5-coder:3b if no model specified (lightweight)
 if "%~1"=="" (
-    aider --model ollama/deepseek-coder-v2:16b
+    aider --model ollama/qwen2.5-coder:3b
 ) else (
     aider %*
 )
